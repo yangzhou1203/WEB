@@ -1,0 +1,554 @@
+.w{
+    width: 1230px;
+    margin: 0 auto;
+}
+#hd{
+    border-bottom: 1px solid #dbdbdb;
+    height: 36px;
+    background-color: #fff;
+}
+#hd-top{
+    width: 1228px;
+    height: 36px;
+    margin: 0 auto;
+}
+li{
+    list-style: none;
+}
+/* 登录  注册 */
+#denglu{
+    font-size: 14px;
+    line-height: 36px;
+    cursor: pointer;
+    float: left;
+    color: #444;    
+}
+#denglu:hover{
+    color: #CC0013;
+}
+#denglu a{
+    font-size: 16px;
+    line-height: 36px;
+    color:#CC0014;
+    margin: 0 3px;
+}
+
+/* 送货地址 */
+#songhuo{
+    float: left;
+    padding-top: 5px;
+    line-height: 21px;
+    margin-left: 15px;
+}
+#songhuo span{
+    font-size: 14px;
+    color: #444;
+}
+#songhuo a:hover{
+    color: #CC0013;
+}
+#hd-top #songhuo #sh-a{
+    text-align: center;
+    padding: 3px 5PX 3px 4px;
+    border: 1px solid #dbdbdb;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 14px;
+    position: relative;
+}
+/* 收货地址部分 =========================*/
+ #city{
+    cursor: pointer;
+padding: 30px 15px;
+position: absolute;
+width: 600px;
+height: 400px;
+background: #f4f4f4;
+z-index: 1000;
+ display: none;
+left:317px;
+border: 1px solid #dbdbdb;
+overflow:hidden; 
+overflow: scroll;
+
+}
+#fan{
+display: block;
+width: 20px;
+height: 20px;
+background-color: #E3C5C5;
+position: fixed;
+right: 775px;
+top: 65px;
+text-align: center;
+}
+/* 搜索城市================ */
+#ss span,#remen span,.zimu span{
+font-size: 14px;
+color: #666;
+letter-spacing: 1px;
+font-weight: 600;
+margin-right: 10px;
+}
+ #ss input{
+text-indent: 1em;
+/* outline: none;  */
+padding: 5px 0;
+border: 1px solid #A9A4A4;
+/* border:none; */
+background:url(../images/jlt.png) no-repeat -324px -202px;
+}
+/* 热门城市===================== */
+#remen{
+    margin-top: 10px;
+}
+#remen span{
+    float: left;
+    display: block;
+    height: 100px;
+}
+#remen ul{
+    height: 115px;
+}
+#remen ul li {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+}
+#remen ul li:hover{
+    color: #CC0013;
+}
+/* #jiansuo{
+    height: 230px;
+    overflow:hidden;
+    overflow: scroll;
+} */
+/* 字母搜索================== */
+.zimu span{
+    float: left;
+}
+.zimu{
+    position: relative;
+    background-color: #f4f4f4;
+}
+.zimu-t a{
+    float:left;
+    font-size: 12px;
+    width: 22px;
+    height: 20px;
+    display:block;
+    background-color: #F3E9E9;
+    margin: 0 2px 4px 0;
+    text-align: center;
+    color: #666;     
+}
+.zmxh{
+    width: 30px;
+    height: 100px;
+    float: left;
+}
+.hd_city a{
+    float: left;
+    margin-right: 15px;
+    font-size: 12px;
+    color: #666; 
+}
+
+
+
+
+/* 收货结束 ============================*/
+#hd-top #songhuo #sh-a em{
+    display: inline-block;
+    width: 14px;
+    height: 18px;
+    /* padding-top: 2px; */
+    vertical-align: middle;
+    background: url(../images/jlt.png) no-repeat -315px 0;
+}
+#hd-top #songhuo u{
+    display: inline-block;
+    width: 39px;
+    height: 19px;
+    vertical-align: middle;    
+    background:  url(../images/jlt.png) no-repeat -270px 0;
+}
+/* 订单 */
+#dingdan,#fuwu,#qiye{
+    float: right;
+    line-height: 36px;
+    padding: 0 10px;
+    border-left: 1px solid #f4f4f4;
+    border-right: 1px solid #f4f4f4;
+    font-size: 14px;
+}
+#dingdan a i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/jlt.png) no-repeat -99px -84px;
+    vertical-align: middle;    
+    
+}
+#dingdan a:hover{
+    color: #CC0013;
+}
+/* 客户服务 */
+#fuwu a i{
+    display: inline-block;
+    width: 9px;
+    height: 5px;
+    background: url(../images/jlt.png) no-repeat -329px -69px;
+    vertical-align: middle;    
+}
+/* #fuwu:hover a i{
+    background: url(../images/jlt.png) no-repeat -329px -80px;
+    color: #CC0012;
+ }  */
+#fuwu:hover{
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    /* color: #CC0012; */
+}
+#fuwu a,ul li:hover{
+
+ color: #CC0012;
+}
+#qiye:hover{
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    color: #CC0013;
+}
+#fuwu{
+    position: relative;
+     
+}
+#fuwu ul{
+    width: 91px;
+    position: absolute;
+    border:1px solid #ccc;
+    border-top:#fff;
+    /* top: -1px; */
+    left:-1px;
+    text-align: center;
+    padding-right: 9px;
+    box-sizing: border-box;
+    z-index:999;
+}
+/* 固定导航栏======================================= */
+#nav {
+    height: 60px;
+    background-color: rgba(11,12,23,.8);
+    position: relative;
+    width: 100%;
+    z-index: 310;
+}
+.nav-f{
+    position: relative;
+}
+#nav-t{
+    width: 1228px;
+    height: 60px;
+    left: 50%;
+    margin-left: -614px;
+    position: absolute; 
+    z-index: 2;
+}
+#nav-t ul li{
+    float: left;
+    width: 150px;
+    text-align: center;
+    line-height: 60px;
+    font: 20px/60px 'Microsoft YaHei'; 
+    
+}
+#nav-t ul li a{
+    color: #fff;
+    display: inline-block;
+    line-height: 60px;  
+
+}
+#nav-t ul li:hover{
+    background-color: red;
+}
+/* 选项卡================================================ */
+#lunboz{
+    position: relative;
+    padding-bottom: 90px;
+    margin: 0 auto;
+    widows: 100%
+}
+#luobo ul{
+    height: 480px;
+    /* background-color: pink; */
+    position: relative;
+    margin: 0 auto;
+}
+#luobo li {
+    display: none;
+    margin: 0 auto;
+}
+#luobo ul #lun1{
+    background: url(../images/lun1.jpg) no-repeat;
+    height: 480px;
+    position: absolute;
+    width: 100%;
+    
+}
+#lunbo-b ul li.bgc{
+    /* background-color: #F4EAEC; */
+    background-color: #EFE3E5;  
+}
+#luobo ul #lun2{
+    background: url(../images/lun2.jpg) no-repeat;
+    height: 480px;
+    position: absolute;
+    width: 100%;  
+}
+#lunbo-b{
+    height: 90px;
+    width: 620px;
+    position: absolute;
+    left: 50%;
+    margin-left: -310px;
+    bottom: 0px;
+    z-index: 4;
+}
+#lunbo-b ul{
+    width: 621px;
+    position: absolute;
+    top:-105px;
+}
+
+#lunbo-b li{
+    width: 305px;
+    height: 105px;
+    background: #fff;
+    float: left;
+    margin-right: 1px;
+    text-align: center; 
+}
+#remai{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #f5af5c;
+    font: bold 16px/20px 'Avenir';
+    letter-spacing: 6px;
+}
+.remai{
+    text-align: center;    
+    padding-bottom: 40px;
+    color: #333;
+    font: 36px/40px 'MingLiu','Microsoft YaHei';
+}
+/* 轮播============================================= */
+#luobo-m{
+    width: 1228px;
+    height: 516px;
+    margin: 0 auto;
+    /* background-color: pink; */
+    position: relative;
+    padding-bottom: 90px;
+}
+#zuo-b a{
+    width: 396px;
+    height: 516px;
+    float: left;
+    display: inline-block;
+    background: url(../images/z1.jpg);
+}
+#lunbo-kk{
+    position: relative;
+    float: right;
+    width: 802px;
+    height: 516px;
+    /* background: blue; */
+}
+.hb_link{
+    position: relative;
+    float: left;
+    width: 170px;
+    margin: 0 30px 5px 0;
+    padding: 17px 0;
+    background-color: #fff;
+}
+.hb_link img{
+    width: 150px;
+    height: 75px;
+}
+.hb_link div{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 173px;
+    height: 100%;
+    text-align: center;
+    background: #000;
+    font: 18px/114px 'Microsoft YaHei';
+    color: #fff;
+}
+/* .hb_link div:hover{
+    opacity: 1;
+} */
+#lunbo-kk ul{
+    position: absolute;
+      z-index: 3;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -30px;
+}
+#lunbo-kk ul li{
+    width: 18px;
+    height: 18px;
+    margin-right: 20px;
+    /* background-color: #f5af5c; */
+    border: 1px #eabb76 solid;
+    border-radius: 50%;
+    float: left;
+}
+/* #lunbo-kk ul li span{
+    display: none;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 4px;
+    background-color: #eabb76;
+    border-radius: 10px;
+} */
+.active{
+    background-color:#eabb76;
+}
+/* #lunbo-kk ul li:hover span{ */
+    /* border: 1px #eabb76 solid; */
+    /* background-color: red; */
+    /* display: block;  */
+    /* width: 15px;
+    height: 15px; */
+    
+/* }  */
+/* 女装 ===================================================*/
+.tongyong{
+    width: 1248px;
+    height: 780px;
+    /* background-color: pink; */
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 90px;
+}
+.tongyong a {
+height: 240px;
+position: relative;
+float: left;
+width: 604px;
+padding: 20px 20px 0 0;
+}
+.tongyong a img{
+position: relative;
+display: block;
+width: 100%;
+}
+.tongyong a div{
+    position: absolute;
+    background-color: #fff;
+    left: 20px;
+    top: 20px;
+    width: 230px;
+    height: 200px;
+}
+.tongyong a div img{
+    width: 130px;
+margin: 18px auto;
+display: block;
+height: 55px;
+}
+.pp1{
+    font: 16px/16px 'Microsoft YaHei';
+    text-align: center;
+}
+.pp2{
+    text-align: center;
+    font-size: 14px;
+    line-height: 35px;
+    color: #535151;
+}
+.pp3{
+    text-align: center;
+    font-size: 12px;
+    line-height: 40px;
+    color: red;
+}
+/*楼层效果 =============================== */
+.nav-c {
+    position: fixed;
+    left: 40px;
+    top: 150px;
+    width: 90px;
+    /* border: 1px solid #cdcdcd; */
+    display: none;
+    background:url(../images/lc.jpg)
+}
+.nav-c ul li {
+    position: relative;
+    width: 90px;
+    height: 40px;
+    /* border: 1px dotted #DDDDDD; */
+    color: #a5a6bf;
+    cursor: pointer;
+    line-height: 32px;
+    text-align: center;
+}
+.nav-c ul li span {
+    position: absolute;
+    height: 40px;
+    width: 90px;
+    left: 0px;
+    top: 0px;
+    display: none;
+}
+.nav-c ul li:hover span {
+    display: block;
+    background:url(../images/lc1.png);
+  
+    color: #0E0E0F;
+}
+.nav-c ul li span.ac {
+    display: block;
+    background:url(../images/lc1.png);
+    color: #a5a6bf;
+}
+.nav-c ul .last:hover{
+    background:url(../images/top.png);
+    
+}
+/* 车跑跑 */
+#hd-top #songhuo u {
+    /*animation:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;*/
+    animation: car 9s infinite;  /*引用动画*/
+}
+/*定义动画*/
+@keyframes car {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(500px, 0, 0);
+    }
+    51% {
+        transform: translate3d(500px, 0, 0) rotateY(180deg);
+        /*如果多组变形 都属于 tarnsform 用空格隔开就好了*/
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotateY(180deg);
+        /*如果多组变形 都属于 tarnsform 用空格隔开就好了*/
+    }
+
+}
+/* =================================== */
+.lcactive{
+    color: #E90E0E;
+}
