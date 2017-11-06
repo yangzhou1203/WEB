@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0px;
+            margin:0;
+            list-style: none;
+        }
+        #box{
+            width: 350px;
+            height: 350px;
+            border:1px solid #ccc;
+            position:relative;
+            margin:100px;
+        }
+        #mask{
+            width:175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top:0;
+            left:0;
+            display: none;
+            cursor: move;
+        }
+        #big{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            position: absolute;
+            left:400px;
+            top:0;
+            overflow: hidden;
+            display: none;
+
+        }
+        #bigpic{
+            position: absolute;
+        }
+    </style>
+<body>
+    <div id="box">
+        <div id="small">
+            <img src="images/001.jpg" alt=""/>
+            <div id="mask"></div>
+        </div>
+        <div id="big">
+            <img src="images/0001.jpg" alt="" id="bigpic"/>
+        </div>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        var small = document.getElementById("small");
+        var mask = document.getElementById("mask");
+        var big = document.getElementById("big");
+        var bigpic = document.getElementById("bigpic");
+        box.onmouseover = function(){
+            mask.style.display = "block";
+            big.style.display = "block";
+        }
+        box.onmouseout = function(){
+            mask.style.display = "none";
+            big.style.display = "none";
+        }
+        small.onmousemove = function(e){
+            var e = event || window.event;
+            //获取鼠标的位置
+            var pageX = e.pageX || e.clientX+document.documentElement.scrollLeft;
+            var pageY = e.pageY || e.clientY+document.documentElement.scrollTop;
+            //mask的位置
+            var smallX = pageX-box.offsetLeft-mask.offsetWidth/2;
+            var smallY = pageY-box.offsetTop-mask.offsetHeight/2;
+            smallX = smallX<0?0:smallX;
+            smallY = smallY<0?0:smallY;
+            smallX = smallX>small.offsetWidth-mask.offsetWidth?
+            small.offsetWidth-mask.offsetWidth:smallX;
+            smallY = smallY>small.offsetHeight-mask.offsetHeight?
+            small.offsetHeight-mask.offsetHeight:smallY;
+            mask.style.left = smallX+"px";
+            mask.style.top = smallY+"px";
+
+            //比例关系
+            //mask移动距离/mask的最大移动距离 = 大图的移动距离/大图的最大移动距离
+            //mask移动距离smallX和smallY;
+            //mask的最大移动距离
+            var maskMove = small.offsetWidth-mask.offsetWidth;
+            //大图的最大移动距离
+            var bigMove = bigpic.offsetWidth-big.offsetWidth;
+            //大图的移动距离
+            bigpic.style.left = -smallX/maskMove*bigMove+"px";
+            bigpic.style.top = -smallY/maskMove*bigMove+"px";
+
+
+
+        }
+    </script>
+</body>
+</html>

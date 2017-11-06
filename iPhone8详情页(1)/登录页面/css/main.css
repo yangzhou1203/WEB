@@ -1,0 +1,212 @@
+body{
+    background-color: #FCFCFC;
+}
+.w{
+    width: 1195px;
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+}
+/*头部开始*/
+header{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #E1E1E1;
+    background-color: #fff;
+    box-shadow: 0 0 7px rgba(0,0,0,0.2);
+}
+.h-img{
+    width: 145px;
+    height: 55px;
+    margin-top: 11px;
+    float: left;
+}
+.h-nav{
+    width: 330px;
+    height: 20px;
+    float: right;
+    margin-top: 17px;
+    font-size: 12px;
+}
+.h-nav span{
+    color: #999999;
+}
+#h-login{
+    text-decoration: none;
+    margin-left: 13px;
+    color: #0066CC;
+}
+.h-helpUl{
+    float: right;
+}
+.h-helpUl a{
+    text-decoration: none;
+}
+#h-help{
+    position: relative;
+    color: #000;
+}
+#h-h-question li:first-child{
+    margin-right: 13px;
+}
+.span1{
+    width: 17px;
+    width: 17px;
+    height: 17px;
+    background: url("../images/regist.png") no-repeat;
+    background-position: -344px 0px;
+    float: left;
+    margin-right: 3px;
+    margin-top: 2px;
+
+}
+.span2 {
+    width: 11px;
+    height: 11px;
+    background: url("../images/regist.png") no-repeat;
+    background-position: -347px -30px;
+    float: right;
+    margin-left: 3px;
+    margin-top: 5px;
+}
+.h-helpUl li{
+    text-align: center;
+    line-height: 30px;
+    border-bottom: 1px dotted #E1E1E1;
+    display: none;
+    background-color: #fff;
+}
+.h-helpUl li a{
+    color: #333;
+    font-size: 12px;
+}
+
+/*中间部分*/
+.tbody{
+    width: 1200px;
+    height: 429px;
+    margin: 0 auto;
+}
+#tb-l img{
+    width: 510px;
+    height: 315px;
+    margin-left: 120px;
+    margin-top: 70px;
+    float: left;
+}
+#tb-r{
+    width: 364px;
+    height: 403px;
+    background-color: #fff;
+    float: right;
+    margin-right: 105px;
+    margin-top: 16px;
+    padding-left: 36px;
+    position: relative;
+}
+#tb-r h5{
+    height: 19px;
+    width: 400px;
+    padding-top: 47px;
+    color: #666666;
+}
+#tb-r h5 a{
+    float: right;
+    margin-right: 75px;
+    color: #0066CC;
+}
+.tIpn {
+    width: 330px;
+    height: 53px;
+    border: 1px solid #DEDEDE;
+    border-radius: 3px;
+    margin-bottom: 11px;
+    outline: none;
+}
+#txtName,#txtPas{
+    width: 290px;
+    padding-left: 40px;
+    color: #999999;
+}
+#checkbox{
+    display: block;
+    font-size:12px;
+    margin-bottom: 15px;
+}
+#zidong{
+    width: 300px;
+    position: absolute;
+    top: 200px;
+    left: 55px;
+    color: #666;
+}
+#forgetPas{
+    float: right;
+    font-size:12px;
+    color: #999999;
+}
+#txtbtn{
+    background-color: #FF3C3C;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+}
+#cooperation{
+    display: block;
+    font-size: 12px;
+    color: #666666;
+}
+#imgUl{
+    width: 330px;
+    height: 55px;
+}
+#imgUl li{
+    width: 32px;
+    height: 32px;
+    background: url("../images/jingling.png") no-repeat;
+    float: left;
+    margin-right: 15px;
+}
+#imgUl li:nth-child(1){
+    background-position: -294px -223px;
+}
+#imgUl li:nth-child(2){
+    background-position: -210px -223px;
+}
+#imgUl li:nth-child(3){
+    background-position: -380px -223px;
+}
+#imgUl li:nth-child(4){
+    background-position: -336px -223px;
+}
+#imgUl em{
+    float: right;
+    font-size: 12px;
+    color: #999999;
+}
+.jingling{
+    width: 42px;
+    height: 24px;
+    background: url("../images/jingling2.png") no-repeat;
+    position: absolute;
+    left: 55px;
+}
+.j1{
+    background-position: -50px 4px;
+    top: 80px;
+}
+.j2{
+    background-position: -150px 4px;
+    top: 150px;
+}
+/*底部部分*/
+.footer{
+    width: 330px;
+    height: 65px;
+    margin: 0 auto;
+}
+.footer p{
+    font-size: 12px;
+    text-align: center;
+}
