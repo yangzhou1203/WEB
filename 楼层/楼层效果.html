@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        /*设置导航的整体*/
+        .nav {
+            position: fixed;
+            left: 40px;
+            top: 150px;
+            width: 32px;
+            border: 1px solid #cdcdcd;
+            border-radius: 3px;
+            display: none;
+        }
+
+        /*设置每一个li标签*/
+        .nav ul li {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            border: 1px dotted #DDDDDD;
+            color: #666;
+            cursor: pointer;
+            line-height: 32px;
+            text-align: center;
+        }
+
+        .nav ul li span {
+            position: absolute;
+            height: 32px;
+            width: 32px;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+
+        .nav ul li.last {
+            background: #cc0000;
+            color: #FFFFFF;
+        }
+
+        /*鼠标移入li发生的span改变*/
+        /*样式直接写法*/
+        .nav ul li:hover span {
+            display: block;
+            background: #ff0000;
+            color: #FFFFFF;
+        }
+
+        .nav ul li span.active {
+            display: block;
+            background: #ff0000;
+            color: #FFFFFF;
+        }
+
+        .header {
+            width: 1000px;
+            height: 650px;
+            background: url("image/首页.png");
+            margin: 0 auto;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0 auto;
+            background: #4444ff;
+        }
+
+        .main .louti {
+            margin: 0 auto;
+            width: 1000px;
+            height: 500px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .footer {
+            margin: 0 auto;
+            width: 1000px;
+            height: 300px;
+            background: url("image/footer.png");
+        }
+    </style>	
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li>1F<span>服饰</span></li>
+			<li>2F<span>美妆</span></li>
+			<li>3F<span>手机</span></li>
+			<li>4F<span>家电</span></li>
+			<li>5F<span>数码</span></li>
+			<li>6F<span>运动</span></li>
+			<li>7F<span>居家</span></li>
+			<li>8F<span>母婴</span></li>
+			<li>9F<span>食品</span></li>
+			<li>10F<span>图书</span></li>
+			<li>11F<span>服务</span></li>
+			<li class="last">Top</li>
+		</ul>
+	</div>
+	<div class="header">
+	</div>
+	<div class="main">
+	    <div class="louti" style="background-color: #33FF33;background: url(image/服饰.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #ff0000;background: url(image/美妆.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #6666cc;background: url(image/手机.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #999933;background: url(image/家电.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #888888;background: url(image/数码.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #559999;background: url(image/运动.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #33FF33;background: url(image/居家.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #009999;background: url(image/母婴.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #005533;background: url(image/食品.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #440099;background: url(image/图书.png) no-repeat">
+	    </div>
+	    <div class="louti" style="background-color: #223355;background: url(image/服务.png)">
+	    </div>
+	</div>]
+	<footer class="footer">
+	</footer>
+</body>
+<script src='jq.js'></script>
+<script>
+	//楼层的运动  不包含最后一个返回顶部
+	$(".nav ul li").not(":last").click(function () {
+		//获取索引
+		var _index=$(this).index();
+		//添加span样式的
+		$(".nav ul li").not(":last").find("span").removeClass("active");
+		$(this).find('span').addClass("active");
+		//获取当前对应索引的楼层的距离顶部的距离加上该楼层的自身高度的一半
+		var top=$(".main>div").eq(_index).offset().top+$(".main>div").eq(_index).outerHeight()/2;
+		console.log(top);
+		//运动到对应楼层
+		$("body,html").animate({
+			scrollTop:top
+		},1000);
+	});
+
+	/*定时器功能    var num=-1;
+	var timer=setInterval(function () {
+		num++;
+		if(num>$(".main>div").length-1){
+			num=0;
+			$('body,html').animate({
+				scrollTop:0
+			},500);
+		}
+		var dis=$(".main>div").eq(num).offset().top;
+		console.log($(".main>div").eq(num));
+		console.log(num,dis);
+		$('body,html').animate({
+			scrollTop:dis
+		},500,function(){
+
+			$(".nav ul li").find("span").removeClass("active");
+			$(".nav ul li").eq(num).find("span").addClass("active");
+			
+		});
+	},4000);*/
+
+
+	//滚动的时候  自动添加类
+	$(window).scroll(function () {
+			//获取滚动的距离
+			var _top=$(window).scrollTop();
+			//显示和隐藏楼层
+			if(_top>=600){
+				$(".nav").fadeIn();
+			}else{
+				$(".nav").fadeOut();
+			}
+			//循环遍历 每一个楼层 判断当前的滚动过的距离 是否小于等于哪些楼层，第一次循环就卡住（return出去），让当前楼层添加样式
+			$(".main>div").each(function (i,ele) {
+					
+				var index= $(ele).index();
+				if(_top<=$(ele).offset().top+$(ele).outerHeight()/2){
+
+					$(".nav ul li").find("span").removeClass("active");
+					$(".nav ul li").eq(index).find("span").addClass("active");
+					return false;
+				}
+
+
+			})
+
+		});
+
+
+	//返回顶部
+	$(".nav ul li.last").click(function () {
+		$('body,html').animate({
+			scrollTop:0 //直接滚动到0
+		},2000);
+	})
+</script>
+</html>
