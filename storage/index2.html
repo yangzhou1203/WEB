@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            margin-left: 300px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        div,
+        li {
+            width: 300px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+            height: 25px;
+        }
+
+        a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="search" placeholder="请输入关键字" />
+    <input type="button" value="搜索">
+    <div><a href="javascript:;">清空搜索记录</a></div>
+    <ul>
+        <!-- <li>没有搜索记录</li>
+        <li><span>手机</span><a href="javascript:;">删除</a></li>
+        <li><span>手机</span><a href="javascript:;">删除</a></li>
+        <li><span>手机</span><a href="javascript:;">删除</a></li>
+        <li><span>手机</span><a href="javascript:;">删除</a></li>
+        <li><span>手机</span><a href="javascript:;">删除</a></li> -->
+    </ul>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            var hlist = localStorage.getItem('hisList') || '[]';
+            var hlistArr = JSON.parse(hlist)
+            var render = function () {
+                var html = '';
+                hlistArr.forEach(function (item, i) {
+                    html += '<li><span>' + item + '</span><a data.index="' + i + '" href="javascript:;">删除</a></li>';
+                });
+                //    判断是否有历史记录存在
+                html = html || '<li>没有搜索记录</li>';
+                $('ul').html(html);
+            }
+            render();
+            //    添加搜索记录
+            $('[type="button"]').on('click', function () {
+                // 获取搜索内容
+                var key = $.trim($('[type="search"]').val());
+                if(!key){
+                    alert('请输入搜索内容');
+                    return false;
+                }
+                // 将数据加入到历史搜索列表中
+                hlistArr.push(key);
+                localStorage.setItem('hisList',JSON.stringify(hlistArr));
+                render();
+                $('[type="search"]').val('');
+            });
+            // 删除数据
+            $('ul').on('click','a',function(){
+                // 获取当前点击a自定义属性id
+                var index = $(this).parent().data('index')
+                // 删除数组中的当前选中
+                hlistArr.splice(index,1);
+                localStorage.setItem('hisList',JSON.stringify(hlistArr));
+                render();
+            })
+
+            // 一键清除搜索列表
+            $('div a').on('click',function(){
+                hlistArr =[];
+                localStorage.setItem('hisList','')
+                render();
+            })
+        })
+    </script>
+</body>
+
+</html>
