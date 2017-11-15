@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正方形</title>
+    <style>
+        canvas {
+            border: 2px solid red;
+            /* 不建议在样式里设置尺寸 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 画布 -->
+    <canvas width="800" height="800"></canvas>
+    <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+        // 既可以使用颜色 也可以使用渐变的方案来填充矩形
+        // 创建一个简便的方案
+        var linearGradient = ctx.createLinearGradient(100, 100, 500, 400)//传建一个线性渐变方案
+        linearGradient.addColorStop(0, 'pink');
+        // linearGradient.addColorStop(0.5, 'orange');
+        linearGradient.addColorStop(1, 'skyblue');
+
+        ctx.fillStyle = linearGradient;
+        ctx.fillRect(100, 100, 400, 100);
+        // 通过两个点坐标可以控制 渐变方向
+    </script>
+</body>
+
+</html>

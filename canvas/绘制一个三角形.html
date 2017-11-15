@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制平行线</title>
+    <style>
+    canvas{
+        border: 5px solid red;
+        /* 不建议在样式里设置尺寸 */
+    }
+    </style>
+</head>
+<body>
+    <!-- 画布 -->
+    <canvas width="600" height="400"></canvas>
+    <script>
+        // 1 获取元素
+        var myCanvas = document.querySelector('canvas');
+        // 2 获取上下文 绘制工具箱
+        var ctx = myCanvas.getContext('2d');//web gl 可以绘制3d效果的网页技术
+        // 3 移动画笔
+
+
+        // ctx.beginPath();//开启新路径
+        // ctx.moveTo(100,100);//起始位置
+        // // 4 绘制直线(轨迹，绘制路径)
+        // ctx.lineTo(300,100);//目标位置  轨迹长度200
+        // ctx.strokeStyle = 'skyblue';//设置颜色
+        // ctx.lineWidth = 20;//设置宽度 默认单位px 不需要添加在数值后面
+        // ctx.stroke();
+
+
+
+        // ctx.beginPath();//开启新路径
+        // ctx.moveTo(300,100);
+        // ctx.lineTo(150,200);
+        // ctx.strokeStyle = 'red';//设置颜色
+        // ctx.lineWidth = 35;//设置宽度
+        // ctx.stroke();
+
+
+
+        // ctx.beginPath();//开启新路径
+        // ctx.moveTo(150,200);//起始点\
+        //                         //  ---两点连城一条直线
+        // ctx.lineTo(100,100);//到达点/
+        // ctx.strokeStyle = 'pink';//设置颜色
+        // ctx.lineWidth = 50;//设置宽度
+        // ctx.stroke();
+        // ctx.stroke();
+// ================================
+ctx.moveTo(100,100);
+ctx.lineTo(200,100);
+ctx.lineTo(200,200);
+// 起始点和linto的结束点无法完全重合
+// ctx.lineTo(100,100);//手动闭合
+
+
+ctx.closePath();//使用canvas的自动闭合 
+
+ctx.lineWidth= 10;
+
+ctx.stroke();
+// ctx.fillStyle = 'red';
+// ctx.fill();//填充
+    </script>
+</body>
+</html>

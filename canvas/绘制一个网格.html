@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+
+        border:2px solid rebeccapurple;
+    }
+    </style>
+    
+</head>
+<body>
+        <canvas width="600" height="400"></canvas>
+        <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+            // 1--绘制网格
+
+            // 2--网格大小
+            var gridSize = 10;
+            // 画多少X轴方向的线 横向条数
+            // console.log(ctx.canvas.width)
+            var canvasHeight = ctx.canvas.height;
+            var canvasWidth = ctx.canvas.width;
+
+            var xlineTotal = Math.floor(canvasHeight/gridSize);
+            for(var i = 0;i<=xlineTotal;i++){
+                ctx.beginPath();
+                ctx.moveTo(0,i*gridSize-0.5);
+                ctx.lineTo(canvasWidth,i*gridSize-0.5)
+                ctx.strokeStyle = '#ddd';
+                ctx.stroke();
+            }
+// 竖线
+            var ylineTotal = Math.floor(canvasWidth/gridSize);
+            for(var i = 0;i<=ylineTotal;i++){
+                ctx.beginPath();
+                ctx.moveTo(i*gridSize-0.5,0);
+                ctx.lineTo(i*gridSize-0.5,canvasHeight)
+                ctx.strokeStyle = '#ddd';
+                ctx.stroke();
+            }
+        </script>
+</body>
+</html>

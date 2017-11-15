@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+
+            border: 2px solid rebeccapurple;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+
+
+
+        // 1--绘制网格
+
+        //             // 2--网格大小
+        //             var gridSize = 10;
+        //             // 画多少X轴方向的线 横向条数
+        //             // console.log(ctx.canvas.width)
+        //             var canvasHeight = ctx.canvas.height;
+        //             var canvasWidth = ctx.canvas.width;
+
+        //             var xlineTotal = Math.floor(canvasHeight/gridSize);
+        //             for(var i = 0;i<=xlineTotal;i++){
+        //                 ctx.beginPath();
+        //                 ctx.moveTo(0,i*gridSize-0.5);
+        //                 ctx.lineTo(canvasWidth,i*gridSize-0.5)
+        //                 ctx.strokeStyle = '#ddd';
+        //                 ctx.stroke();
+        //             }
+        // // 竖线
+        //             var ylineTotal = Math.floor(canvasWidth/gridSize);
+        //             for(var i = 0;i<=ylineTotal;i++){
+        //                 ctx.beginPath();
+        //                 ctx.moveTo(i*gridSize-0.5,0);
+        //                 ctx.lineTo(i*gridSize-0.5,canvasHeight)
+        //                 ctx.strokeStyle = '#ddd';
+        //                 ctx.stroke();
+        //             }
+        // ========================================================================
+
+        // 确定原点
+        // 确定距离画布旁边的距离
+        //     var space = 20;
+        //     var arrowSize = 10;
+        //     // 计算原点
+        //     var canvasHeight = ctx.canvas.height;//画布高
+        //     var canvasWidth = ctx.canvas.width;//画布宽
+        //     // 原点坐标轴
+        //     var x0 = space;
+        //     var y0 = canvasHeight-space;
+        //     // 绘制X轴
+        //     ctx.beginPath();
+        //     ctx.moveTo(x0,y0)
+        //     ctx.lineTo(canvasWidth-space,y0);
+        //     // 箭头
+        //     // 三角形坐标轴
+        //     ctx.lineTo(canvasWidth-space-arrowSize,y0+arrowSize/2);
+        //     ctx.lineTo(canvasWidth-space-arrowSize,y0-arrowSize/2);  
+        //     ctx.lineTo(canvasWidth-space,y0);                      
+        //    ctx.strokeStyle = '#000';
+        //     ctx.fill();
+        //  ctx.stroke()
+        //   // 绘制Y轴
+        //   ctx.beginPath();
+        //     ctx.moveTo(x0,y0)
+        //     ctx.lineTo(space,space);
+
+        //     // 箭头
+        //      // 三角形坐标轴
+        //     ctx.lineTo(space+arrowSize/2,space+arrowSize);
+        //     ctx.lineTo(space-arrowSize/2,space+arrowSize);  
+        //     ctx.lineTo(space,space);
+        //    ctx.strokeStyle = '#000';        
+        //     ctx.fill();
+        //     ctx.stroke()
+
+
+        // 绘制点的坐标
+        var coordinate = {
+            x: 100,
+            y: 100
+        }
+
+        // 点尺寸
+        var dottedSize = 6;
+        ctx.moveTo(coordinate.x-dottedSize/2,coordinate.y-dottedSize/2)
+        ctx.lineTo(coordinate.x+dottedSize/2,coordinate.y-dottedSize/2)
+        ctx.lineTo(coordinate.x+dottedSize/2,coordinate.y+dottedSize/2)
+        ctx.lineTo(coordinate.x-dottedSize/2,coordinate.y+dottedSize/2)
+        ctx.closePath();
+        ctx.fill()      
+    </script>
+</body>
+
+</html>
