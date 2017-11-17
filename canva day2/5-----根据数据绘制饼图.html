@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 数据
+        var data = [6, 30, 10, 8];
+        // 数据转成弧度
+        var anglelist = [];
+        // 总数
+        var total = 0;
+        data.forEach(function (item,i) {
+            total += item;
+        })
+        data.forEach(function (item,i) {
+            var angle = Math.PI*2*(item/total);
+            anglelist.push(angle);
+        })
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+        var x0 = w / 2;
+        var y0 = h / 2
+        var startangle = 0;
+
+        anglelist.forEach(function(item,i){
+            var endangle = startangle + item;
+            ctx.beginPath()
+            ctx.moveTo(x0,y0)
+            ctx.arc(x0,y0,150,startangle,endangle);
+            ctx.fillStyle = "rgb("+  Math.floor(Math.random()*255) +"," +   Math.floor(Math.random()*255) + "," +  Math.floor(Math.random()*255) + ")"
+            ctx.fill();
+            startangle = endangle;
+        })
+    </script>
+</body>
+
+</html>

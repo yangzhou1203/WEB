@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="500" height="500"></canvas>
+    <script>
+        var myCanvas = document.querySelector('canvas');
+        var ctx = myCanvas.getContext('2d');
+        // 加载图片到内存中
+        // var img = document.createElement('img');
+        // img.src = 'images/1.jpg';
+
+        // 创建对象
+        var image = new Image();
+        // 绑定加载完成事件
+        image.onload = function () {
+            // 三参数用法
+            // ctx.drawImage(image, 0, 0);
+
+            // 五参数用法
+            // ctx.drawImage(image, 0, 0,100,100);
+
+            // 九参数用法
+                ctx.drawImage(image, 100, 100, 400, 100,100, 100, 200, 200);
+        }
+        image.src = 'images/4.jpg';
+    </script>
+</body>
+
+</html>
