@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+       function sort(array) {
+      // 用来控制趟数
+      for (var i = 0; i < array.length - 1; i++) {
+        // 用来控制每一趟的位置交换次数
+        for(var j = 0; j<array.length-i-1; j++){
+          // 交换两个位置的值(如果前面大于后面的值 就把前面的值交换给后面)
+          if(array[j] > array[j+1] ) {
+            var temp = array[j];
+            array[j] = array[j+1];
+            array[j+1] = temp;
+          }
+        }
+      }
+      return array;
+    }
+    var arr = [45,12,23, 19];
+    // fn(sort(arr));
+   var r=  sort(arr);
+   console.log(r);
+    // console.log(arr);
+
+    
+
+
+    // 问题是: 这个函数需不需要 return 把数组返回
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
