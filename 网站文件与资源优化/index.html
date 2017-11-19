@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+             background: #eee;
+    
+        }
+        h1 {
+
+            text-align: center;
+            margin: 60px 0 60px 0;
+            color: #004;
+            font-size: 70PX;
+        }
+        .top li {
+
+            margin-left: 30px;
+            height: 100px;
+            line-height: 100px;
+            color: #130606;
+            font-size: 35px;
+            list-style: none;
+            width: 1000px; 
+        }
+        .box {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            width: 700px;
+            text-align: center;
+            line-height: 50px;
+            display: none;
+            font-size: 20px;
+            position: absolute;
+            left: 1100px;
+            top: 240px;
+            font-size: 22px;
+        }
+        #bb span {
+            display: block;
+            color: red;
+            font-size: 50px;
+        }
+        #bb {
+            position: absolute;
+            right: -200px;
+            top: 120px;
+            width: 500px;
+        }
+        #box2 span {
+            color: red;
+            font-size: 18px;
+        }
+        section{
+            width: 400px;
+            text-align: center;
+            color: #112233;
+            line-height: 30px;
+            display: none;
+            position: absolute;
+            right: 100px;
+           top:0;
+           border: 1px dashed #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>网站文件与资源优化</h1>
+    <hr>
+    <ul class="top">
+        <li>1:利用浏览器缓存你的 js 和 CSS 文件</li>
+        <li>2:把你的 .js 库文件地址替换成 Google CDN的地址</li>
+        <li>3:精简和优化你的 js 和 CSS</li>
+        <li>4:GZIP 压缩你的 JS 和 CSS 文件</li>
+        <li>5:使用css sprites合并图片</li>
+        <li>6:优化网站图片</li>
+        <li>7:推荐几个网站</li>
+    </ul>
+    <div class="content">
+        <div class="box" id="box1">
+            <p>
+                在网站根目录 <span style="color:red">.htaccess</span> 中加入以下代码 <br> 　　ExpiresActive on <br>　　 ExpiresDefault “access plus 1 year”
+                　<br> 这段代码的意思是对 jpg|gif|png|css|js 发送 header 缓存头，<br> 进行一年的缓存、在浏览器不使用 ctrl+F5 强制刷新时，会一直缓存到时间时间结束，<br> 但是如果你更改了js或者css文件必须把以前的路径或者文件名更改，
+                <br> 可以这样base.js?ver=(x) 这种方式下次浏览器就会自动读取并缓存。
+            </p>
+        </div>
+        <section id="s1">
+            概述来说，htaccess文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过htaccess文件，可以帮我们实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能。
+        </section>
+        <div class="box" id="box2">
+            随着 jquery等js库的使用需要加载的.js文件越来越多也越来越大，<br> 通常传统的网站是上传到网站本身的目录。
+            <br> 但jquery.js体积确实不利于网站响应速度的提升，此时就应该使用Google API 。<br> 　　
+            例如：把你的 http://www.***.cn/jquery.x.x.js 替换为 http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js，<br>          
+              其意义在于当一个用户访问过使用 google api 的网站之后，再次访问其他调用了该api地址的网站就不需要再次加载该文件了。从而达到提速的目的。   <i style="color : red">CDN???</i>
+              <br><span>但是由于谷歌的使用有时候会受到限制，也不太稳定，需要视情况而定</span>
+        </div>
+        <section id="s2">
+                CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。其目的是使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。。
+        </section>
+        <div class="box">
+            虽然有了缓存和gzip，但是对于 js 和 css 的优化却也是必须的。<br>我们写的javascript脚本和 css 代码都是经过缩进和换行的，适合人类阅读，但是浏览器执行这些脚本不并需要这些无意义的空格和换行。<br>    
+            所以我们应该去除这一些空格换行，甚至缩短 javascript 和 css 里面的变量。<br><span style="color:red">其实说白了就是优化代码,写的时候整齐点，缩进什么都注意点,能用单引号别用双引号把空白的地方都删掉，别一个变量名十几二十个字母,那么长又不好记有占地方</span>
+        </div>
+        <div class="box">
+            压缩js和css可以通过服务器动态脚本进行也可以更简单的使用apache服务器可以在网站根目录 .htaccess 中加入以下代码<br> 　　AddOutputFilterByType DEFLATE text/html
+            text/css text/plain text/xml application/x-javascript application/json 　<br>　Header append Vary Accept-Encoding<br>            　　这段代码的意思是调用服务器的压缩模块对以上文件输出之前进行GZIP压缩，gzip的压缩之后所有文件都应该能减少30%以上的体积。
+            <br> 特别是对于大量使用js的网页有了gzip之后速度能提高不少。<br><br>
+            <span> <i style="color:red,font-size30px" > GZIP</i>是网站压缩加速的一种技术，对于开启后可以加快我们网站的打开速度，原理是经过服务器压缩，客户端浏览器快速解压的原理，可以大大减少了网站的流量。Gzip开启以后会将输出到用户浏览器的数据进行压缩的处理，这样就会减小通过网络传输的数据量，提高浏览的速度。</span>
+        </div>
+        <div class="box">
+            一个网站经常使用小图标和小图片进行美化，<br>但是这些小图片占用了大量的HTTP请求，因此可以采用sprites的方式把所有的图片合并成一张图片 ，<br> 可以通过相关工具在线合并，也可以在ps中合并。<br>
+            <span style="color:red">一般情况下会用photoshop建立一张比较大的透明背景，之后用background-position来定位(应该就是我们说的精灵图吧)</span><br>
+            <span style="color:yellowgreen">CSS Sprites(图片整合技术) 的目的就是通过整合图片，减少对服务器的请求数量，从而加快页面加载速度。当页面加载时，不是加载每个但以图片，而是一次加载整个组合图片。它大大减少了HTTP请求的次数，减轻服务器压力，同时缩短了悬停加载图片所需要的时间延迟，使效果更流畅，不会停顿</span>
+        </div>
+        <div class="box">
+            大量使用的图片和图标虽然可以给网站带来非常棒的效果，<br>图文混编更是一种非常绚丽的博文展现方法。可图片的体积确实让人很难受，jpg是一种有损压缩格式，而png虽然是无损的，但体积太大。<br> 为了减少图片体积达到最快的下载速度，每一张图片上传前应该优化一下体积。<br><br>
+            <span>有一种新的图片格式WebP格式，谷歌（google）开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有JPEG的2/3，在质量相同的情况下，WebP格式图像的体积要比JPEG格式图像小40%。
+                    但WebP是一种有损压缩。相较编码JPEG文件，编码同样质量的WebP文件需要占用更多的计算资源。
+    </span>
+        </div>
+        <div class="box">
+            <a href="https://link.zhihu.com/?target=http%3A//cssguidelin.es/">css 编写规范</a> <br>
+            <a href="https://link.zhihu.com/?target=http%3A//browserdiet.com/en/">前端性能优化的24种方法 </a><br>
+            <a href="https://link.zhihu.com/?target=http%3A//jstherightway.org/"> 学习js正确的方法 JS: The Right Way </a><br>
+            <a href="https://link.zhihu.com/?target=http%3A//eloquentjavascript.net/">很有趣的js编程教材 Eloquent JavaScript</a><br>
+            <a href="https://link.zhihu.com/?target=http%3A//rachelnabors.com/javascript-for-designers/%23slide-0">设计师写的js入门教程，页面很赞 </a><br>
+            <a href="https://link.zhihu.com/?target=http%3A//leaverou.github.io/regexplained/">CSS女神开发的正则表达式工具，超赞： RegExp playground</a>
+        </div>
+    </div>
+    <div class="box" id="bb">
+        脑子里第一个想法是<span>那就别上传文件了</span>
+    </div>
+</body>
+<script src="jq.js"></script>
+<script>
+    $('#box1 span').click(function(){
+        $('#s1').slideToggle(500);
+    })
+    $('#box2 i').click(function(){
+        $('#s2').slideToggle(500);
+    })
+    $("h1").click(function () {
+        $("#bb").fadeToggle(500);
+    })
+    $(".top li").click(function () {
+        $(".content .box").eq($(this).index()).stop().slideDown(500).siblings().stop().slideUp(500);
+    })
+</script>
+
+</html>
