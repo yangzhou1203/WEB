@@ -1,0 +1,14 @@
+@charset "utf-8";
+.sn_tabs {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.sn_tabs ul {
+  width: 100px;
+}
+.sn_tabs ul li {
+  width: 20%;
+  float: left;
+}
