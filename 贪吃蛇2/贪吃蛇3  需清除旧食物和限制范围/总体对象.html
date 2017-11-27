@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script src="food.js"></script>
+<script src="snake.js"></script>
+<script>
+    var oMap = document.getElementById("map");
+    // var food = new Food();
+    // food.render(oMap);
+    // var snake = new Snake();
+    // snake.render(oMap);
+
+    (function(window){
+       //-----------整体对象 ，把snake  food   map 对象座位图的属性挂载
+    function Game(map) {
+        //-------------常见一个Game构造函数对象
+        this.food = new Food();
+        //-------------实例化food对象存在game中
+        this.snake = new Snake();
+        //-------------实例化snake对象存在game中        
+        this.map = map;
+    }
+        Game.prototype.begin=function(){
+            this.food.render(this.map);
+            this.snake.render(this.map);            
+        }
+        window.Game=Game;
+    })(window)
+    var game=new Game(oMap);
+    game.begin();
+</script>
+
+</html>

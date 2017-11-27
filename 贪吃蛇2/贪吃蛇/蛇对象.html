@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script src="food.js"></script>
+<script>
+    //从页面上上先获取地图
+    var oMap = document.getElementById("map")
+    //创建一个食物的实例对象
+    var food = new Food();
+    //实例对象主动调用渲染方法  在页面上随机产生食物
+    food.render(oMap);
+
+
+
+    //蛇对象
+    (function (window) {
+        //创建蛇的构造函数
+        function Snake(width, height, direction) {
+            //添加宽高属性默认值
+            this.width = width || 20;
+            this.height = height || 20;
+
+            //设置蛇的身体
+            this.body = [
+                { x: 3, y: 2, color: "red" },//蛇头
+                { x: 2, y: 2, color: "blue" },//蛇身1
+                { x: 1, y: 2, color: "blue" }   //蛇身2      
+            ]
+            //设置蛇头方向
+
+            this.direction = direction || "right";
+        }
+
+        Snake.prototype.render = function () {
+            //根据body蛇长度  循环三个div  分别放入地图中
+
+            for (var i = 0; i < this.body.length; i++) {
+                var oDiv = document.createElement("div")
+                
+                oDiv.style.width = this.width + "px";
+                oDiv.style.height = this.height + "px";
+                //创建好的div的left值 等于  body的第i个里面的x坐标  格子单位20
+                oDiv.style.left = this.body[i].x * this.width+"px";
+                oDiv.style.top = this.body[i].y * this.height+"px";
+
+                //需要个div设置定位
+                oDiv.style.position = "absolute";
+                oDiv.style.backgroundColor = this.body[i].color;
+                map.appendChild(oDiv);
+
+            }
+        }
+        window.Snake = Snake;
+    })(window)
+    var snake = new Snake();
+    snake.render(oMap);
+
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script>
+    (function (window) {
+        //食物对象
+        //构造函数  构造食物
+        function Food(width, height, x, y, color) {
+            //把一些属性进行添加  并且给一些默认初始化数据
+            this.width = width || 20;
+            this.height = height || 20;
+            //将坐标先挂载到属性上
+            this.x = x || 0;
+            this.y = y || 0;
+            //颜色默认
+            this.color = color || "green";
+        }
+
+        Food.prototype.render = function () {
+            //将食物随机产生  放在页面上
+            //用地图的宽度width/食物的宽度=40  然后取整
+            //parseInt取整  取到0-39之间的随机整数(0-39) *20  ====(0---780之间的随机整数一定是20的倍数)  
+            this.x = parseInt(Math.random() * (map.offsetWidth / this.width)) * this.width;//(800/20)
+            this.y = parseInt(Math.random() * (map.offsetHeight / this.height)) * this.height;
+
+            //通过dom元素节点方式创建
+            var oDiv = document.createElement("div");
+            //给div加宽高
+            oDiv.style.width = this.width + "px";
+            oDiv.style.height = this.height + "px";
+            //给div添加位置
+            oDiv.style.left = this.x + "px";
+            oDiv.style.top = this.y + "px";
+            //想要食物在页面上根据left和top值进行随机位置  就需要让他相对于地图进行绝对定位
+            oDiv.style.position = "absolute";
+            //添加颜色
+            oDiv.style.background = this.color;
+            //需要将创建好的div节点放入地图中
+
+            map.appendChild(oDiv);
+
+        }
+        window.Food = Food;
+    })(window)
+    //从页面上上先获取地图
+    var oMap = document.getElementById("map")
+    //创建一个食物的实例对象
+    var food = new Food();
+
+    //实例对象主动调用渲染方法  在页面上随机产生食物
+    food.render(oMap);
+
+</script>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script src="food.js"></script>
+<script>
+    var oMap = document.getElementById("map");
+    var food = new Food();
+    food.render(oMap);
+
+    //---------创建蛇的构造函数、
+    (function (window) {
+        function Snake(width, height, snwe) {
+            this.width = width || 20;
+            this.height = height || 20;
+            //-----------默认方向
+            this.snwe = snwe || "right"
+            //------------蛇长度.位置.颜色
+
+            this.body = [
+                { x: 3, y: 2, color: "yellow" },
+                { x: 2, y: 2, color: "skyblue" },
+                { x: 1, y: 2, color: "skyblue" },
+            ]
+        }
+        Snake.prototype.render = function () {
+            //---------循环创建三个div。
+            for (var i = 0; i < this.body.length; i++) {
+                var aDiv = document.createElement("div");
+                //-----------大小
+                aDiv.style.width = this.width + "px";
+                aDiv.style.height = this.height + "px";
+                //------------位置
+                aDiv.style.left = this.body[i].x * this.width + "px";
+                aDiv.style.top = this.body[i].y * this.height + "px";
+                //----------定位
+                aDiv.style.position = "absolute";
+                aDiv.style.background = this.body[i].color;
+                map.appendChild(aDiv);
+            }
+        }
+        window.Snake = Snake;
+    })(window)
+    var snake = new Snake();
+    snake.render(oMap);
+
+</script>
+
+</html>

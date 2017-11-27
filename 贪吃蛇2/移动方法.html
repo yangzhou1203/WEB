@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 1200px;
+            height: 900px;
+            background-color: black;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script src="food.js"></script>
+<script src="snake.js"></script>
+<script src="game.js"></script>
+<script>
+    var oMap = document.getElementById("map")
+    var game = new Game(oMap);
+    game.begin();
+
+    // var food = new Food();
+    // //实例对象调用随机产生
+    // food.render(oMap);
+    // var snake = new Snake();
+    // snake.render(oMap);
+
+</script>
+
+</html>

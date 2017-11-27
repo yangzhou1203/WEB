@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script>
+    (function (window) {
+        //食物构造函数
+        function Food(width, height, x, y, color) {
+            //设置食物默认样式
+            //宽高
+            this.width = width || 20;
+            this.height = height || 20;
+            //位置
+            this.x = x || 0;
+            this.y = y || 0;
+            //颜色
+            this.color = color || "black";
+
+        }
+        //原型添加方法   渲染render 
+        Food.prototype.render = function () {
+            // 创建食物div  jiedian
+            var aDiv = document.createElement("div");
+            //div宽高
+            aDiv.style.width = this.width + "px";
+            aDiv.style.height = this.height + "px";
+            //食物随机产生位置
+            this.x = parseInt(Math.random() * (map.offsetWidth / this.width)) * this.width;
+            this.y = parseInt(Math.random() * (map.offsetHeight / this.height)) * this.height;
+
+            //位置
+            aDiv.style.left = this.x + "px";
+            aDiv.style.top = this.y + "px";
+            //需要移动  添加定位
+            aDiv.style.position = "absolute";
+            //颜色
+            this.color="rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+")"
+            aDiv.style.background = this.color;
+            map.appendChild(aDiv);
+
+
+        }
+        window.Food = Food;
+    })(window);
+    var oMap = document.getElementById("map")
+    var food = new Food();
+    //实例对象调用随机产生
+    food.render(oMap);
+
+</script>
+
+</html>
