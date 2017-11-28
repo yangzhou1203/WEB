@@ -1,0 +1,223 @@
+.con{
+    width: 100%;    
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+/* 顶部 */
+.top{
+    width: 100%;    
+    margin: 0 auto;
+    background-color: #006699;
+    height: 45px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+}
+.top_z{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 45px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* 轮播图 */
+.mui-slider{
+    margin-top: 45px;
+}
+/* 商品分类 */
+.cta {
+    width: 100%;
+    padding: 10px;
+}
+.cta ul{
+    width: 100%;
+}
+.cta ul li{
+    width: 33.3333333333333%;
+    float: left;
+}
+.cta ul li a{
+    width: 100%;
+    display: block;
+}
+.cta ul li a img{
+    width: 100%;
+    display: block;
+}
+/* 活动区域 */
+.sale{
+    width: 100%;
+    padding-top: 15px;
+}
+.sale .sa_left{
+    width: 66.6666666666%;
+    float: left;
+}
+.sale .sa_left ul{
+    width: 100%;
+
+}
+.sale .sa_left ul li{
+    width: 50%;
+    float: left;
+}
+.sale .sa_left ul li a{
+    width: 100%;
+    display: block;
+}
+.sale .sa_left ul li a img{
+    width: 100%;
+    display: block;
+}
+.sale .sa_right{
+    width: 33.33333333333%;
+    float: right;
+}
+.sale .sa_right a{
+    width: 100%;
+    display: block
+}
+.sale .sa_right a img{
+    width: 100%;
+    display: block
+}
+/* 品牌专区 */
+.brand{
+    width: 100%;
+    position: relative;
+}
+.brand .br_top{
+    width: 100%;
+}
+.brand .br_top a{
+    width: 100%;
+    display: block;
+}
+.brand .br_top a img{
+    width: 100%;
+    display: block;
+}
+.brand .br_much{
+    width: 100%;
+}
+.brand .br_much{
+    width: 100%;
+    padding-top: 10px;
+}
+.brand .br_much ul{
+    width: 100%;
+}
+.brand .br_much ul li{
+    width: 25%;
+    float: left;
+}
+.brand .br_much ul li a{
+    width: 100%;
+    display: block;
+}
+.brand .br_much ul li a img{
+    width: 100%;
+    display: block;
+}
+/* 运动生活专区   &  男士专区  &  女士专区*/
+.Sports_life{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.Sports_life .sl_top{
+    width: 100%;
+}
+.Sports_life .sl_top a{
+    width: 100%;
+    display: block;
+}
+.Sports_life .sl_top a img{
+    width: 100%;
+    display: block;
+}
+.Sports_life .br_much{
+    width: 100%;   
+}
+.Sports_life .br_much ul{
+    width: 100%;   
+}
+.Sports_life .br_much ul li{
+    width: 50%;
+    float: left;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+.Sports_life .br_much ul li a{
+    width: 100%;
+    display: block;
+    padding: 0 5px;
+    box-shadow: 0 0 5px #ccc;
+}
+.Sports_life .br_much ul li a img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.Sports_life .br_much ul li a p{
+text-align: center;
+}
+.Sports_life .br_much ul li a p:first-of-type{
+   text-align: center;
+   height: 36px;
+   line-height: 18px;
+   font-size: 14px;
+   margin-top: 0;
+   margin-bottom: 10px;
+   color: #8f8f94;
+   overflow: hidden;
+}
+.Sports_life .br_much ul li a .price span{
+    color: red;
+ }
+ .Sports_life .br_much ul li a .price {
+     margin-bottom: 15px;
+ }
+ .Sports_life .br_much ul li a p button{
+    background: #006699;
+    color: #fff;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.42;
+ }
+
+ .man{
+     margin-bottom: 60px;
+ }
+ /* 底部栏 */
+ html body .tabs{
+     background-color: #006699;
+     width: 100%;
+     height: 50px;
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     z-index: 100000;
+ }
+ .tabs ul{
+width: 100%;
+ }
+ .tabs ul li{
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: #fff;
+     }
+.tabs ul li a{
+    width: 100%;
+    color: #fff;
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+}
