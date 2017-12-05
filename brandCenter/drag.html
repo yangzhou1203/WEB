@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>jQuery 插件（拖拽）</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="./Js/jquery.min.js"></script>
+<script type="text/javascript">
+    // 拖拽插件
+    (function ($) {
+        $.fn.drag = function (options) {
+            var o = $.extend({
+                bar : '.bar'
+            },options);
+            var _this = $(this);
+            _this.find(o.bar).mouseover(function () {
+                $(this).css('cursor','move');
+            }).mousedown(function (ev) {
+                _move = true;
+                var _left = _this.offset().left,
+                    _top = _this.offset().top,
+                    pos_x = ev.clientX,
+                    pos_y = ev.clientY,
+                    win = $(window),
+                    scro_x = win.scrollLeft(),
+                    scro_y = win.scrollTop(),
+                    win_w = win.width(),
+                    win_h = win.height(),
+                    _width = _this.outerWidth(),
+                    _height = _this.outerHeight();
+                $(document).mousemove(function (ev) {
+                    var mov_x = ev.clientX,
+                        mov_y = ev.clientY,
+                        move_left = _left + mov_x - pos_x,
+                        move_top = _top + mov_y - pos_y;
+                    if(move_left <=scro_x || move_left + _width >= win_w || move_top <= scro_y || move_top + _height >= win_h) {
+                        return false;
+                    }
+                    _this.css({left:move_left,top:move_top});
+                });
+            }).mouseup(function () {
+                $(document).unbind('mousemove');
+            });
+            $(document).mouseup(function () {
+                $(this).unbind('mousemove');
+            });
+        }
+    })(jQuery);
+    
+    $(function () {
+        $('#drag').drag({bar:'.title-bar'});
+    });
+</script>
+
+<style type="text/css">
+    * {margin:0;padding:0;}
+    #drag {
+        width:300px;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    #drag .title-bar {
+        height:30px;
+        line-height:30px;
+        background:#62CDFF;
+        color:#FFFFFF;
+        padding-left:10px;
+        position:relative;
+    }
+    #drag .title-bar a.cancle {
+        display:block;
+        width:15px;
+        text-align:center;
+        position:absolute;
+        right:10px;
+        top:0;
+        text-decoration:none;
+        color:#FFFFFF;
+        font-family:'Arial';
+    }
+    #drag .main {
+        height:230px;
+        border:1px solid #62CDFF;
+    }
+</style>
+</head>
+    <body style="height:2000px;">
+        <div id="drag">
+            <div class="title-bar"><h3>标题</h3><a href="javascript:void(0)" class="cancle">X</a></div>
+            <div class="main"></div>
+        </div>
+    </body>
+</html>

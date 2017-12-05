@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>改联网 - 品牌中心</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link type="text/css" rel="stylesheet" href="./Css/reset.css" />
+<link type="text/css" rel="stylesheet" href="./Css/style.css" />
+<script type="text/javascript" src="./Js/jquery.min.js"></script>
+<script type="text/javascript" src="./Js/fun.js"></script>
+<script type="text/javascript" src="./Js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="./Js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        UE.getEditor('myEditor')
+    });
+</script> 
+
+<style type="text/css">
+
+</style>
+</head>
+    <body>
+        <div id="brand">
+            <!-- 顶部广告位 -->
+            <div class="adv">
+                <div class="left"><a href="javascript:void(0)"><img src="./Uploads/adv_1.jpg" alt="" title="" /></a></div>
+                <div class="right"><a href="javascript:void(0)"><img src="./Uploads/adv_1.jpg" alt="" title="" /></a></div>
+            </div>
+            <!-- 容器 -->
+            <div class="container">
+                <!-- 主体部分 -->
+                <div class="main">
+                    <div class="subnav">
+                        <ul class="nor">
+                            <li><div class="wrap"><a href="javascript:void(0)"><h4>品牌介绍</h4><span>BRAND INTRODUCTION</span></a></div></li>
+                            <li><div class="wrap"><a href="javascript:void(0)"><h4>招商信息</h4><span>BUSINESS INFORMATION</span></a></div></li>
+                            <li><div class="wrap"><a href="javascript:void(0)"><h4>全国经销商列表</h4><span>THE NATIONAL DEALER LIST</span></a></div></li>
+                            <li><div class="wrap"><a href="javascript:void(0)"><h4>产品展示</h4><span>ONLINE ORDERS</span></a></div></li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <div class="bg">
+                            <div class="tip editbtn">编辑</div>
+                            <div class="article">
+                            </div>
+                        </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                </div>
+                <!-- 侧边栏 -->
+                <div class="sidebar">
+                    <!-- loop start -->
+                    <div class="item">
+                        <div class="title"><h3>操控改装-最受关注品牌排行</h3></div>
+                        <div class="list">
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_3.gif" alt="" title="" /></a>
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_6.gif" alt="" title="" /></a>
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_8.gif" alt="" title="" /></a>
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_12.gif" alt="" title="" /></a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="title"><h3>操控改装-最受关注品牌排行</h3></div>
+                        <div class="list">
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_4.gif" alt="" title="" /></a>
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_2.gif" alt="" title="" /></a>
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_1.jpg" alt="" title="" /></a>
+                            <a href="javascript:void(0)"><img src="./Uploads/logo_9.gif" alt="" title="" /></a>
+                        </div>
+                    </div><!-- loop end -->
+                    <div class="bottom-line"></div>
+                </div>
+            </div>
+        </div>
+        <div id="mask"></div>
+        <div id="edit" class="layers">
+            <div class="tit"><h3>编辑标签</h3><a href="javascript:void(0)" class="cancle">X</a></div>
+            <div class="tb">
+                <form action="" method="post">                    
+                    <textarea name="后台取值的key" id="myEditor">这里写你的初始化内容</textarea>
+                    <p><input type="submit" class="sub" value="提交信息" /></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
