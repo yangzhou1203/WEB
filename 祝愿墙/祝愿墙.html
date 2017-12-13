@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+    *{
+        padding:0;
+        margin:0;
+        list-style:none;
+
+    }
+        body{
+            width:100%;
+            height:100%;
+            background:url('images/bg.gif') repeat;
+            font:12px "微软雅黑";
+        }
+        .con{
+            width:960px;
+            height:627px;
+            background:url('images/content_bg.jpg') no-repeat;
+            margin:0 auto;
+            position:relative;
+        }
+        .tip{
+            width:227px;
+            position:absolute;
+            top:30px;
+            left: 30px;
+            overflow:hidden;
+        }
+        .tip_t{
+            width:207px;
+            height:28px;
+            cursor:move;
+            padding:40px 10px 0 10px;
+            background:url('images/tip1_h.gif') no-repeat;
+        }
+        .tip_t p{
+            float:left;
+        }
+        .tip_t span{
+            float:right;
+            cursor:pointer;
+        }
+        .tip_con{
+            padding:0 10px 22px 10px;
+            background:url('images/tip1_c.gif') repeat-y;
+        }
+        .tip_b{
+            width:207px;
+            height:73px;
+            padding:0 10px;
+            background:url(images/tip1_f.gif) no-repeat;
+        }
+        .tip_b span{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div class="con" id="con">
+    </div>
+</body>
+</html>
+<script >
+    var con = document.getElementById("con");
+    var messages = [
+        {"id":1,"name":"mahu","content":"今天你拿苹果支付了么","time":"2016-02-17 00:00:00"},
+        {"id":2,"name":"haha","content":"今天天气不错，风和日丽的","time":"2016-02-18 12:40:00"},
+        {"id":3,"name":"jjjj","content":"常要说的事儿是乐生于苦","time":"2016-03-18 12:40:00"},
+        {"id":4,"name":"9.8的妹纸","content":"把朋友家厕所拉堵了 不敢出去 掏了半小时了都","time":"2016-03-18 12:40:00"},
+        {"id":5,"name":"雷锋ii.","content":"元宵节快乐","time":"2016-02-22 12:40:00"},
+        {"id":6,"name":"哎呦哥哥.","content":"据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。","time":"2016-02-22 01:30:00"},
+        {"id":7,"name":"没猴哥，不春晚","content":"班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……","time":"2016-02-22 01:30:00"},
+        {"id":8,"name":"哎呦杰杰.","content":"真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，","time":"2016-02-22 01:30:00"},
+        {"id":9,"name":"哎呦哎呦","content":"今天哪里的烟花最好看！！？答：朋友圈。。。","time":"2016-02-22 02:30:00"}
+    ];
+    for(var i = 0;i<messages.length;i++){
+        var tip = document.createElement("div");
+        con.appendChild(tip);
+        tip.className = "tip";
+        tip.id = "tip"+i;
+        var str = '<div class="tip_t" title="双击关闭纸条">'+
+                '<p>第['+messages[i].id+']条'+messages[i].time+'</p>'+
+                '<span class="close">X</span>'+
+                '</div>'+
+                '<p class="tip_con">'+messages[i].content+'</p>'+
+                '<div class="tip_b">'+
+                ' <img src="images/bpic_1.gif" alt="">'+
+                '<span>'+messages[i].name+'</span>'+
+                '</div>';
+        tip.innerHTML = str;
+        //纸条随机位置
+        var x = parseInt(Math.random()*400+100);
+        var y = parseInt(Math.random()*400);
+        tip.style.left = x+"px";
+        tip.style.top = y+"px";
+        //点击纸条提高层级
+        tip.onclick = fn;
+
+        //console.log(tip_t);
+        //
+        //
+        //鼠标按下，纸条移动
+        var tip_t = tip.getElementsByClassName("tip_t")[0];
+        tip.onmousedown = function(e){
+            var _this = this;
+            var pageX = e.pageX - this.offsetLeft;
+            var pageY = e.pageY - this.offsetTop;
+            document.onmousemove = function(e){
+                var X = e.pageX - pageX;
+                var Y = e.pageY - pageY;
+                _this.style.left = X + "px";
+                _this.style.top = Y + "px";
+            }
+             document.onmouseup = function(){
+            document.onmousemove = null;
+            }
+        }
+
+
+
+        //双击头部关闭纸条
+        tip_t.ondblclick = function(){
+            var zt = this.parentNode;
+            zt.parentNode.removeChild(zt)
+        }
+        //点击关闭
+        var close = tip.getElementsByClassName("close")[0];
+        close.onclick = function(){
+            var zt = this.parentNode.parentNode;
+            zt.parentNode.removeChild(zt)
+        }
+    }
+    var index = 1;
+    function fn(){
+        index++;
+        this.style.zIndex = index;
+    }
+</script>
+
+<!-- <div class="tip_t" id="tip_t">
+                 2016-02-22 02:30:00</p>
+                <span>X</span>
+            </div>
+            <p class="tip_con">今天哪里的烟花最好看！！？答：朋友圈。。。</p>
+            <div class="tip_b">
+                <img src="images/bpic_1.gif" alt="">
+                <span>哎呦哎呦</span>
+            </div> -->
