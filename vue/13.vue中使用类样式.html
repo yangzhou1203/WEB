@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .thin {
+            font-weight: 200;
+        }
+
+        .small {
+            font-size: 14px;
+        }
+    </style>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>在Vue中,使用 v-bind 为元素绑定数组的类样式:</p>
+        <h1 :class="['red', 'small','thin']">这是一个大大的H1,我大,我骄傲!</h1>
+
+        <hr>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
