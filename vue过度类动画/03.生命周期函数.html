@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>    
+</head>
+<body>
+    <div id="app">
+        <input type="button" value = "changeMsg" @click="msg='数据被改'">
+        <h2 id="h3">{{msg}}</h2>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'66666666'
+        },
+        methods:{
+            show(){
+                console.log('出发了show事件')
+            }
+        },
+        beforeCreate(){
+            // data与methods未初始化成功
+            // console.log(this.msg)
+            // this.show();
+        },
+        created(){
+            // data与methods初始化成功
+            // console.log(this.msg)
+            // this.show()
+        },
+        beforeMount(){
+            // const ele = document.getElementById('h3');
+            // console.log(ele.innerHTML)
+        },
+        mounted(){
+            // const ele = document.getElementById('h3');
+            // console.log(ele.innerHTML)
+        },
+        beforeUpdate() { // 更新之前
+        const ele = document.getElementById('h3')
+        console.log(ele.innerHTML) 
+      },
+      updated() { // 更新之后
+        // const ele = document.getElementById('h3')
+        // console.log(ele.innerHTML)
+      }
+    })
+    </script>
+</body>
+</html>

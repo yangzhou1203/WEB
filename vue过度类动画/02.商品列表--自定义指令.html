@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <label>Id:</label>
+        <input type="text" v-model="id">
+        <label>Name:</label>
+        <input type="text" v-model="name" @keyup.enter="add">
+        <input type="button" value="添加" @click="add">
+        <label>检索品牌:</label>
+        <input type="text" v-model="search" @change="searchPro" v-focus>
+        <table>
+            <thead>
+                <tr>
+                    <td v-color="'red'">id</td>
+                    <td>name</td>
+                    <td v-focus>Ctime</td>
+                    <td v-w='200'>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in searchPro()" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.Ctime}}</td>
+                    <td>
+                        <a href="http://www.sina.com" @click.prevent="del(item.id)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 全局定义的焦点的v-focus指令
+        Vue.directive('focus',{
+            bind:function(el){
+                el.style.color='red'
+            },
+            inserted:function(el){
+                el.focus()
+            }
+
+        })
+        Vue.directive('color',{
+            bind(el,binding){
+                el.style.color = binding.value||'skyblue'
+            },
+            inserted:function(el){
+
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                search: '',
+                list: [
+                    { id: 1, name: '桑塔纳', Ctime: new Date() },
+                    { id: 2, name: '夏利', Ctime: new Date() },
+                    { id: 3, name: '宾利', Ctime: new Date() },
+                ]
+            },
+            methods: {
+                add() {
+                    this.list.push({ id: this.id, name: this.name, Ctime: new Date() })
+                },
+                del(id) {
+                    for (let i = 0; i < this.list.length; i++) {
+                        if (this.list[i].id == id) { }
+                        this.list.splice(i, 1);
+                        break;
+                    }
+                },
+                searchPro() {
+                    let result = []
+                    for (let i = 0; i < this.list.length; i++) {
+                        if (this.list[i].name.indexOf(this.search) !== -1) {
+                             result.push(this.list[i])
+                         }
+                       
+                    }
+                     return result
+
+                }
+            },
+            directives:{
+                w:{
+                    bind(el,binding){
+                        el.style.fontWeight = binding.value
+                    },
+                    inserted(el){
+
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

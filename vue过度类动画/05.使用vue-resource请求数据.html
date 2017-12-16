@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+    <script src="./lib/vue-resource-1.3.4.js"></script>    
+</head>
+<body>
+    <div id="app">
+<input type="button" value="GET" @click='get'>
+<input type="button" value="PST" @click='post'>
+<input type="button" value="JSON" @click='jsonp'>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            async get(){
+                const aa = await this.$http.get('http://39.106.32.91:3000/api/getlunbo')
+                // console.log(aa)
+            },
+            async post(){
+                const bb = await this.$http.post('http://39.106.32.91:3000/api/post',{name:'梦总',id:1,age:18})
+                // console.log(bb)
+            },
+            async jsonp(){
+                const cc = await this.$http.jsonp('http://39.106.32.91:3000/api/jsonp')
+                console.log(cc)
+            }
+        }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg | strStr}}</p>
+    </div>
+
+    <div id="app2">
+            <p>{{msg | strStr | addStr}}</p>
+        </div>
+    <script>
+        // 全局过滤器
+        Vue.filter('strStr', function (data, str = "短") {
+            return data.replace(/细/g,str)
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '梦总的鸡儿贼细'
+            },
+            methods: {
+
+            }
+        })
+        var vm2 = new Vue({
+            data: {
+                msg: '梦总的鸡儿贼细'
+            },
+            filters:{
+                addStr(data){
+                    return data + '~~~~~'
+                }
+            }
+        })
+        vm2.$mount('#app2')
+    </script>
+</body>
+
+</html>

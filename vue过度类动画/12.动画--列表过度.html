@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            width: 300px;
+            line-height: 30px;
+            border: 1px dashed red;
+            text-align: center;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        li:hover {
+            background-color: skyblue
+        }
+    </style>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <label>id:</label><input type="text" v-model="id">
+        <label>name:</label><input type="text" v-model="name">
+        <label>gender:</label><input type="text" v-model="gender">
+        <input type="button" value="添加" @click="add">
+        <transition-group tag="ul">
+            <li v-for="(item,i) in list" :key="item.id" @click="del(i)">{{item.id}}------{{item.name}}------{{item.gender}}</li>
+        </transition-group>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { name: '杨州', id: 1, gender: '男' },
+                    { name: '梦总', id: 2, gender: '男' },
+                    { name: '鸡宽', id: 3, gender: '男' }
+                ],
+                id: '',
+                name: '',
+                gender:''
+            },
+            methods: {
+                add(){
+                    const text ={name:this.name,id:this.id,gender:this.gender}
+                    this.list.unshift(text)
+                    this.name=this.id=''                    
+                },
+                del(i){
+                    this.list.splice(i,1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
