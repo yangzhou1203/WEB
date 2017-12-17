@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 父组件向子组件传递数据，需要给子组件绑定自定义属性的方式 -->
+        <com1 :msg="parentMsg"></com1>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                parentMsg:'呆逼'
+            },
+            methods: {
+
+            },
+            components: {
+                'com1': {
+                    template: `<div>
+                <h3>子组件标题{{msg}}</h3>
+                </div>`,
+                props:['msg']//在Vue中只有props是数组,其他带s后缀的属性的都是对象
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

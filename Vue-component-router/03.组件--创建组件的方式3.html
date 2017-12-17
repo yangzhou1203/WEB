@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+<mycom3></mycom3>
+    </div>
+    
+    <template id="tmpl">
+        <h1>外界定义的组件UI结构</h1>
+    </template>
+
+    <script>
+        // 创建组件的第三种方式
+
+        // 使用Vue.component注册一个全局组件 第二个参数可以接受一个对象
+        Vue.component('mycom3', {
+            template: '#tmpl'
+        })
+
+
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

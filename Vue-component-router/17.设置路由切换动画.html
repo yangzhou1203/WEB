@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .myActive {
+            color: skyblue;
+            font-size: 50px;
+        }
+        .v-enter{
+            opacity: 0;
+            transform: translateX(300px)
+        }
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(-300px)
+        }
+        .v-enter-active,
+        .v-leave-avtive{
+            transition: all 2s ease;
+            position: absolute;
+        }
+    </style>
+    <script src="./lib/vue-2.5.9.js"></script>
+    <!-- 1. 导入 vue-router -->
+    <script src="./lib/vue-router-v3.0.1.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/login">登录</router-link>
+        <router-link to="/logout">注销</router-link>
+        <transition>
+ <router-view></router-view>
+
+        </transition>
+       
+    </div>
+    <script>
+        // 创建要切换的组件
+        const login = {
+            template: '<h1>登录组件</h1>'
+        }
+        const logout = {
+            template: '<h1>注销组件</h1>'
+        }
+        const router = new VueRouter({
+            routes: [
+                { path: '/', component: login },
+                { path: '/login', component: login },
+                { path: '/logout', component: logout },
+            ],
+            linkActiveClass:'myActive'
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{},
+            methods:{},
+            router
+        })
+    </script>
+</body>
+
+</html>

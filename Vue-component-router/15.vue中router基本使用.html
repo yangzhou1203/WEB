@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+    <!-- 1. 导入 vue-router -->
+    <script src="./lib/vue-router-v3.0.1.js"></script>
+</head>
+
+<body>
+    <div id="app">
+<router-link to="/login">登录</router-link>
+<router-link to="/logout">注销</router-link>
+<router-view></router-view>
+    </div>
+    <script>
+        // 创建要切换的组件
+        const login = {
+            template: `<h1>登录组件</h1>`
+        }
+        const logout = {
+            template: `<h1>注销组件</h1>`
+        }
+        // 创建一个路由对象
+        const router = new VueRouter({
+            routes: [
+                { path: '/login', component: login },
+                { path: '/logout', component: logout }
+            ]
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            router //把路由对象挂在vm啥办法
+        })
+    </script>
+</body>
+
+</html>

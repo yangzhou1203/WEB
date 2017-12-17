@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>    
+</head>
+<body>
+    <div id="app">
+<mycom2></mycom2>
+    </div>
+    <script>
+       const o = {count:0}
+        // 使用Vue.component注册一个全局组件 第二个参数可以接受一个对象
+        Vue.component('mycom2',{
+            template:`<div>
+           <input typt="button" value="+1" @click="add">
+           <h3>{{count}}</h3>
+            </div>`,
+            data:function(){
+                return o
+                // {count:0}
+            },
+            methods:{
+               add(){
+                this.count++
+               }
+                
+            }
+        })
+
+
+
+
+    var vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            
+        }
+    })
+    </script>
+</body>
+</html>

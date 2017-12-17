@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 评论区域 -->
+        <comment @func="addcom"></comment>
+        <!-- 显示列表 -->
+        <ul>
+            <comerae v-for="(item,i) in list" :item="item" :key="i"></comerae>
+        </ul>
+        <!-- <ul>
+            <li v-for="(item,i) in list" :key="i">{{item.person}}--------{{item.content}}</li>
+        </ul> -->
+    </div>
+    <script>
+        // 组件二
+        Vue.component('comerae', {
+            template: `<li>
+                <h3>评论人:{{item.person}}</h3>
+                <h5>评论内容:{{item.content}}</h5>
+            </li>`,
+            props: ['item']
+        })
+        // 组件一
+        Vue.component('comment', {
+            template: `<div>
+            <label>评论人</label><br>
+            <input type="text" v-model="person"><br>
+            <label>内容</label><br>
+            <textarea v-model="content"></textarea>
+            <input type="button" value="发表评论" @click="comBtn">
+            </div>`,
+            data: function () {
+                return {
+                    person: '',
+                    content: ''
+                }
+            },
+            methods: {
+                comBtn() {
+                    const conText = { person: this.person, content: this.content }
+                    this.$emit('func', conText)
+                    // console.log(conText)
+                    this.person = this.content = '';
+                }
+            }
+
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { person: 'zs', content: '屁屁' },
+                    { person: 'z2s', content: '屁屁1' },
+                    { person: 'z3s', content: '屁屁2' },
+                    { person: 'z4s', content: '屁屁3' }
+                ]
+            },
+            methods: {
+                addcom(conText) {
+                    console.log(conText)
+                    this.list.push(conText)
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

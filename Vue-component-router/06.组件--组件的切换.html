@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .v-enter{
+        opacity: 0;
+        transform: translateX(100px)
+    }
+    .v-leave-to{
+        opacity: 0;
+        transform:translateX(-100px)
+    }
+    .v-enter-active,
+    .v-leave-active{
+        transition: all 1.5s ease;
+        position: absolute;
+    }
+    </style>
+    <script src="./lib/vue-2.5.9.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <a href="#" @click="comname='com1'">1</a>
+        <a href="#" @click="comname='com2'">2</a>
+        <a href="#" @click="comname='com3'">3</a>
+        <a href="#" @click="comname='com4'">4</a>
+        <transition><component :is="comname"></component></transition>
+        
+        <!-- <com1></com1> -->
+    </div>
+    <script>
+        // 创建组件的第二种方式
+
+        // 使用Vue.component注册一个全局组件 第二个参数可以接受一个对象
+        Vue.component('com1', {
+            template: '<h1>孙行者</h1>'
+        })
+        Vue.component('com2', {
+            template: '<h1>行者孙</h1>'
+        })
+        Vue.component('com3', {
+            template: '<h1>孙者行</h1>'
+        })
+        Vue.component('com4', {
+            template: '<h1>者行孙</h1>'
+        })
+
+
+
+// Vue.component('com1',{
+//     template:`<h1>孙行者</h1>`
+// })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                comname: 'com1'
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

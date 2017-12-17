@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+    <script src="./lib/vue-router-v3.0.1.js"></script>
+    <style>
+        .myActive {
+            color: skyblue;
+            font-size: 50px;
+        }
+
+        .v-enter {
+            opacity: 0;
+            transform: translateX(300px)
+        }
+
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(-300px)
+        }
+
+        .v-enter-active,
+        .v-leave-avtive {
+            transition: all 2s ease;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/login/20/杨州">登录</router-link>
+        <router-link to="/reg">注册</router-link>
+        <transition>
+            <router-view></router-view>
+        </transition>
+    </div>
+    <script>
+        const login = {
+            template: '<h1>登录组件</h1>',
+            created(){
+                console.log(this)
+            }
+        }
+        const reg = {
+            template: '<h1>注册组件</h1>'
+        }
+        const router = new VueRouter({
+            props:['id','name'],
+            routes:[
+                {path:'/',component:login},
+                {path:'/login/:id/:name',component:login},
+                {path:'/reg',component:reg},
+            ],
+            linkActiveClass:'myActive'
+        })
+        const vm = new Vue({
+            el:'#app',
+            data:{},
+            methods:{},
+            router
+        })
+    </script>
+</body>
+
+</html>
