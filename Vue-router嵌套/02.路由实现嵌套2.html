@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.5.9.js"></script>
+    <script src="./lib/vue-router-v3.0.1.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/account">--------Account-------</router-link>
+        <router-link to="/news">--------news-------</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        const account = {
+            template: `<div>
+                <h2>account组件</h2>
+        <router-link to="/account/login">--------login-------</router-link>
+        <router-link to="/account/reg">--------reg-------</router-link>
+                <router-view></router-view>
+            </div>`
+        }
+        const news = {
+            template: `<div>
+                <h2>news组件</h2>
+            </div>`
+        }
+        const login = {
+            template: `<div>
+                <h2>login组件</h2>
+            </div>`
+        }
+        const reg = {
+            template: `<div>
+                <h2>reg组件</h2>
+            </div>`
+        }
+
+        const router = new VueRouter({
+            routes: [
+                {
+                    path: '/account', component: account, children: [
+                        { path: 'login', component: login },
+                        { path: 'reg', component: reg },
+                    ]
+                },
+                { path: '/news', component: news }
+            ]
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            router
+
+        })
+    </script>
+</body>
+
+</html>

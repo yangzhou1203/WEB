@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body,h1{
+            margin: 0;
+            padding: 0;
+        }
+        .top{
+            height: 200px;
+            background-color: pink;
+        }
+        #box{
+            display: flex;
+            height: 500px;
+        }
+        .left{
+            flex: 3;
+            background-color: rgb(160, 201, 218);
+        }
+        .right{
+            flex: 7;
+            background-color: rgb(207, 190, 200);
+        }
+        .footer{
+            height: 130px;
+            background-color: #ccc
+        }
+    </style>
+    <script src="./lib/vue-2.5.9.js"></script>
+    <script src="./lib/vue-router-v3.0.1.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-view name="top" class="top"></router-view>
+        <div id="box">
+            <router-view name="left" class="left"></router-view>
+            <router-view name="right" class="right"></router-view>
+        </div>
+        <router-view name="bottom" class="footer"></router-view>
+    </div>
+    <script>
+        const header = {
+            template: `<div>
+            <h1>头部区域</h1>
+           </div>`
+        }
+        const footer = {
+            template: `<div>
+            <h1>脚部区域</h1>
+           </div>`
+        }
+        const left = {
+            template: `<div>
+            <h1>左部区域</h1>
+           </div>`
+        }
+        const right = {
+            template: `<div>
+            <h1>右区域</h1>
+           </div>`
+        }
+        const router = new VueRouter({
+            routes: [
+                {
+                    path: '/', components: {
+                        'top': header,
+                        'left': left,
+                        'right': right,
+                        'bottom': footer
+                    }
+                }
+            ]
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            router
+
+        })
+    </script>
+</body>
+
+</html>
